@@ -11,7 +11,11 @@ import { Breadcrumbs } from "./component/Breadcrumbs.jsx";
 import { ContactListHome } from "./pages/ContactListHome.jsx";
 import { ContactList } from "./pages/ContactList.jsx";
 import { ContactListForm } from "./pages/ContactListForm.jsx";
-// import { StarWarsHome } from "./pages/StarWarsHome.jsx";
+import { StarWarsHome } from "./pages/StarWarsHome.jsx";
+import { StarWarsSection } from "./pages/StarWarsSection.jsx";
+import { StarWarsDetails } from "./pages/StarWarsDetails.jsx";
+import { Pedro } from "./pages/Pedro.jsx";
+import { Page404 } from "./pages/404.jsx";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -29,7 +33,11 @@ const Layout = () => {
                         <Route element={<ContactList />} path="/contact-list/:agendaName" />
                         <Route element={<ContactListForm />} path="/contact-list/:agendaName/:type/:id" />
                         <Route element={<ContactListForm />} path="/contact-list/:agendaName/:type" />
-                        {/* <Route element={<StarWarsHome />} path="/StarWars" /> */}
+                        <Route element={<Page404 />} path="*" />
+                        <Route element={<Pedro />} path="/pedro" />
+                        <Route element={<StarWarsHome />} path="/star-wars" />
+                        <Route element={<StarWarsSection />} path="/star-wars/:section" />
+                        <Route element={<StarWarsDetails />} path="/star-wars/:section/:uid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -64,21 +64,21 @@ export const ContactListForm = () => {
                     </div>
                     <div className='form-group col-12 col-lg-4'>
                         <label htmlFor='name'>Name <span className='text-danger'>*</span></label>
-                        <input type='text' className='form-control' id='name' value={dataToSend.name} onChange={handleInput} required />
+                        <input type='text' className='bg-secondary-subtle form-control' id='name' value={dataToSend.name} onChange={handleInput} required />
                     </div>
                     <div className='form-group col-12 col-lg-2'>
                         <label htmlFor='name'>Phone</label>
-                        <input type='text' className='form-control' id='phone' value={dataToSend.phone} onChange={handleInput} />
+                        <input type='text' className='bg-secondary-subtle form-control' id='phone' value={dataToSend.phone} onChange={handleInput} />
                     </div>
                     <div className='form-group col-12 col-lg-4'>
                         <label htmlFor='name'>Email</label>
-                        <input type='text' className='form-control' id='email' value={dataToSend.email} onChange={handleInput} />
+                        <input type='text' className='bg-secondary-subtle form-control' id='email' value={dataToSend.email} onChange={handleInput} />
                     </div>
                 </div>
                 <div className="row mt-2">
                     <div className='form-group col-12'>
                         <label htmlFor='name'>Address</label>
-                        <input type='text' className='form-control' id='address' value={dataToSend.address} onChange={handleInput} />
+                        <input type='text' className='bg-secondary-subtle form-control' id='address' value={dataToSend.address} onChange={handleInput} />
                     </div>
                 </div>
                 <div className="row mt-4">

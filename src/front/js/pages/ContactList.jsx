@@ -19,9 +19,12 @@ export const ContactList = () => {
     };
 
     const handleDelete = async (id) => {
-        await actions.deleteAgendaContact(params.agendaName, id).then(() => {
-            fetchData()
-        });
+        if (confirm('Are you sure you want to delete this contact?')) {
+            await actions.deleteAgendaContact(params.agendaName, id).then(() => {
+                fetchData()
+            });
+        }
+        
     };
 
     const handleDeleteAgenda = async () => {
@@ -56,7 +59,7 @@ export const ContactList = () => {
                 </div>
                 <ul className="list-group list-group-horizontal flex-wrap d-flex justify-content-center">
                     {contacts.contacts.map((contact, index) => (
-                        <li key={contact.id} className="list-group-item border rounded col-lg-5 col-12 m-2">
+                        <li key={contact.id} className="list-group-item border-black rounded bg-secondary-subtle col-lg-5 col-12 m-2">
                             <div className="card-body">
                                 <div className='d-flex justify-content-between align-items-center'>
                                     <h2 className="card-title">{contact.name}</h2>

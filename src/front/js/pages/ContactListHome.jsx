@@ -53,7 +53,7 @@ export const ContactListHome = () => {
     }, []);
 
     return (
-        <div className='container mt-auto mb-auto d-flex justify-content-evenly align-items-center'>
+        <div data-bs-theme="dark" className='container mt-auto mb-auto d-flex justify-content-evenly align-items-center'>
             <div className='col-auto'>
                 <div className="d-flex justify-content-center align-items-center mb-5">
                     <h1>Select an agenda</h1>
@@ -76,7 +76,7 @@ export const ContactListHome = () => {
                         </div>
                     </div>
                     <div className="btn-group">
-                        <button className='btn ms-0' disabled={isButtonDisabled} onClick={() => fetchData()}>
+                        <button className='btn ms-0 text-black border-secondary' disabled={isButtonDisabled} onClick={() => fetchData()}>
                             <i className="fas fa-sync" />
                         </button>
                     </div>
@@ -98,7 +98,7 @@ export const ContactListHome = () => {
                 </div>
                 <div className='my-4 form-floating'>
                     <input type='text' className='form-control' id='floatingInput' onChange={(e) => setInputValue(e.target.value)} value={inputValue} placeholder='Agenda Name' />
-                    <label htmlFor='floatingInput'>Agenda Name</label>
+                    <label className='text-white' htmlFor='floatingInput'>Agenda Name</label>
                 </div>
                 {visibleSpinnerRight && <div className='d-flex justify-content-center align-items-center mb-4'>
                     <Spinner color="black" />

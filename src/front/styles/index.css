@@ -2,10 +2,20 @@
     General Styles used on every website (Don't Repeat Yourself)
 */
 
+/* Clases globales */
+body {
+    background-color: lightgrey;
+}
+
+.cursor-pointer :hover {
+    cursor: pointer;
+}
+
+/* Clases de linea horizontal en contact-list */
 .container-line {
     display: flex;
     align-items: center;
-    height: 260px; /* Ajusta la altura según sea necesario */
+    height: 260px;
 }
 
 .line {
@@ -24,4 +34,230 @@
     background-color: white;
     padding: 0 5px;
     color: gray;
+}
+
+/* Clases de brillo para enlaces y efecto sable */
+a {
+    color: #4f4fff;
+    /* Azul oscuro */
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+.saber-green:hover {
+    color: #00ff00;
+}
+
+.saber-green:hover::after {
+    background-color: #00ff00;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00;
+}
+
+.saber-red:hover {
+    color: #ff0000;
+}
+
+.saber-red:hover::after {
+    background-color: #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000;
+}
+
+.saber-blue:hover {
+    color: #0000ff;
+}
+
+.saber-blue:hover::after {
+    background-color: #0000ff;
+    box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff;
+}
+
+.saber-purple:hover {
+    color: #800080;
+}
+
+.saber-purple:hover::after {
+    background-color: #800080;
+    box-shadow: 0 0 5px #800080, 0 0 10px #800080, 0 0 15px #800080, 0 0 20px #800080;
+}
+
+.saber-yellow:hover {
+    color: yellow; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se hace hover */
+}
+
+.saber-yellow:hover::after {
+    background-color: yellow; /* Color de fondo */
+    box-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 15px yellow, 0 0 20px yellow; /* Sombras */
+}
+
+/* Clase para cian */
+.saber-cyan:hover {
+    color: cyan; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se hace hover */
+}
+
+.saber-cyan:hover::after {
+    background-color: cyan; /* Color de fondo */
+    box-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 15px cyan, 0 0 20px cyan; /* Sombras */
+}
+
+.saber-white:hover {
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se hace hover */
+}
+
+.saber-white:hover::after {
+    background-color: white; /* Color de fondo */
+    box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, 0 0 20px white; /* Sombras */
+}
+
+/* Clases de brillo fijo */
+.glow {
+    position: relative;
+    z-index: 1;
+}
+
+.glow::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    background: inherit;
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3);
+    border-radius: inherit;
+    filter: blur(8px);
+}
+
+.glow-green::before {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.glow-red::before {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+}
+
+.glow-blue::before {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.4), 0 0 30px rgba(0, 0, 255, 0.3);
+}
+
+.glow-purple::before {
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5), 0 0 20px rgba(128, 0, 128, 0.4), 0 0 30px rgba(128, 0, 128, 0.3);
+}
+
+/* Clases de brillo cuando pasas el raton por el elemento */
+.glow-hover {
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-hover::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    background: inherit;
+    z-index: -1;
+    border-radius: inherit;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.glow-hover:hover::before {
+    opacity: 1;
+}
+
+.glow-hover-green:hover::before {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+.glow-hover-red:hover::before {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.3);
+}
+
+.glow-hover-blue:hover::before {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5), 0 0 20px rgba(0, 0, 255, 0.4), 0 0 30px rgba(0, 0, 255, 0.3);
+}
+
+.glow-hover-purple:hover::before {
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5), 0 0 20px rgba(128, 0, 128, 0.4), 0 0 30px rgba(128, 0, 128, 0.3);
+}
+
+.glow-hover-yellow:hover::before {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.3);
+}
+
+.glow-hover-cyan:hover::before {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.4), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+/* Clases de brillo para el texto */
+.glow-text {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.glow-text-green {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5),
+        0 0 10px rgba(0, 255, 0, 0.4),
+        0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.glow-text-red {
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.5),
+        0 0 10px rgba(255, 0, 0, 0.4),
+        0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+.glow-text-blue {
+    text-shadow: 0 0 5px rgba(0, 0, 255, 0.5),
+        0 0 10px rgba(0, 0, 255, 0.4),
+        0 0 15px rgba(0, 0, 255, 0.3);
+}
+
+.glow-text-purple {
+    text-shadow: 0 0 5px rgba(128, 0, 128, 0.5),
+        0 0 10px rgba(128, 0, 128, 0.4),
+        0 0 15px rgba(128, 0, 128, 0.3);
+}
+
+.glow-text-yellow {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5),
+        0 0 10px rgba(255, 255, 0, 0.4),
+        0 0 15px rgba(255, 255, 0, 0.3);
+}
+
+.glow-text-cyan {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5),
+        0 0 10px rgba(0, 255, 255, 0.4),
+        0 0 15px rgba(0, 255, 255, 0.3);
 }
