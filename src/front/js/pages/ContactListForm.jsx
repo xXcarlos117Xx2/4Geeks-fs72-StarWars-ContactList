@@ -6,12 +6,14 @@ import { Spinner } from '../component/Spinner.jsx';
 
 export const ContactListForm = () => {
     const { store, actions } = useContext(Context);
+    
     const [contact, setContact] = useState({
         name: '',
         phone: '',
         address: '',
         email: ''
     });
+
     const [dataToSend, setDataToSend] = useState({
         name: '',
         phone: '',
@@ -45,7 +47,6 @@ export const ContactListForm = () => {
             if (params.id) {
                 actions.getAgendaContacts(params.agendaName).then((contact) => {
                     const currentContact = contact.contacts.find((c) => c.id === parseInt(params.id)) || {}
-                    console.log(currentContact);
                     !currentContact && navigate(`/contact-list/${params.agendaName}`);
                     setContact(currentContact);
                     setDataToSend(currentContact);

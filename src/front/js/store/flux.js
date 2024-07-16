@@ -4,6 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
 			agendaBaseURL: "https://playground.4geeks.com/contact",
 			agendaName: null,
+			swBaseUrl: "https://swapi.tech/api/",
+			swApiData: [],
+			favorites: [],
 		},
 		actions: {
 
@@ -13,6 +16,26 @@ const getState = ({ getStore, getActions, setStore }) => {
                     agendaName: agendaName
                 })
 			},
+
+			// Favorite manager
+
+			fetchFavorite: (item) => {
+				setStore({ favorites: item })
+			},
+
+			removeFavorite: (item) => {
+			},
+
+			addFavorite: (item) => {
+			},
+
+			fetchDataFromLocalStorage: () => {
+                const storedData = localStorage.getItem('swApiData');
+                if (storedData) {
+                    const apiData = JSON.parse(storedData);
+                    setStore({ swApiData: apiData });
+                }
+            },
 
 			// API Handler
 			APICall: async (url, options) => {
@@ -27,6 +50,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return await response.json();
 				} catch (error) {
 					console.error('Error in fetch:', error);
+					console.error(`URL ${url}
+					Data sent ${options}`)
 					return null;
 				};
 			},

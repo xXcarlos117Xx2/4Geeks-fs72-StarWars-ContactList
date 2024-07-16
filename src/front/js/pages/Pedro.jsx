@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import sw_star from "../../img/sw_star.png";
 import pedro from "../../img/pedro.gif";
-import { useNavigate } from "react-router-dom";
 
 
 export const Pedro = () => {
