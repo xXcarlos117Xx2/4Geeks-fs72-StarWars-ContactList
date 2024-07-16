@@ -1,0 +1,49 @@
+/* 404.css */
+
+.container-404 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    color: #343a40;
+}
+
+.container-404 h1 {
+    font-size: 10rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.container-404 .lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.astronaut {
+    width: 200px;
+    height: 200px;
+    margin: 2rem 0;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-20px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

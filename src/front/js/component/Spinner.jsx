@@ -1,6 +1,13 @@
 import React from 'react';
 
 export const Spinner = ({color}) => {
+
+    // If not color, select one randomly
+    if (!color) {
+        const colors = ["blue", "red", "green", "yellow", "black", "white"];
+        color = colors[Math.floor(Math.random() * colors.length)];
+    }
+    
     switch (color) {
         case "blue":
             color = "text-primary";
