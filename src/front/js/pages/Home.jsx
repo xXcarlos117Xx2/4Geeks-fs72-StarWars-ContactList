@@ -10,7 +10,7 @@ import sw_star from "../../img/sw_star.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const sections = [
-	{ id: "characters", title: "Characters", imgSrc: sw_char, colorClass: "glow-hover glow-hover-green", textClass: "glow-text-green" },
+	{ id: "people", title: "Characters", imgSrc: sw_char, colorClass: "glow-hover glow-hover-green", textClass: "glow-text-green" },
 	{ id: "starships", title: "Starships", imgSrc: sw_ship, colorClass: "glow-hover glow-hover-purple", textClass: "glow-text-purple" },
 	{ id: "vehicles", title: "Vehicles", imgSrc: sw_vehicle, colorClass: "glow-hover glow-hover-blue", textClass: "glow-text-blue" },
 	{ id: "planets", title: "Planets", imgSrc: sw_plan, colorClass: "glow-hover glow-hover-red", textClass: "glow-text-red" },

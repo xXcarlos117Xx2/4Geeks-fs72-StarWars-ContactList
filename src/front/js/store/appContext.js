@@ -21,14 +21,57 @@ const injectContext = PassedComponent => {
 			})
 		);
 
+		const fetchData = async () => {
+			const types = ["people", "films", "species", "vehicles", "starships", "planets"];
+			let apiData = JSON.parse(localStorage.getItem('swApiData')) || {};
+		
+			// Filtrar tipos de datos incompletos o inexistentes
+			const incompleteTypes = types.filter(type => {
+				const typeData = apiData[type];
+				const totalRecords = typeData ? typeData.total_records : 0;
+				const resultsLength = typeData ? typeData.results.length : 0;
+		
+				return !typeData || resultsLength !== totalRecords;
+			});
+		
+			if (incompleteTypes.length === 0) {
+				console.log('Todos los datos ya están almacenados en localStorage.');
+				state.actions.fetchFavorite(JSON.parse(localStorage.getItem('favoriteList')));
+				return;
+			}
+		
+			// Función para obtener todos los datos paginados de un tipo
+			const fetchTypeData = async (type) => {
+				let currentPage = 1;
+				let results = [];
+				let total_records = 0;
+				let typeData;
+		
+				do {
+					typeData = await state.actions.APICall(`${state.store.swBaseUrl}${type}?page=${currentPage}&limit=10`);
+					if (!typeData || !typeData.results) break;
+					results = results.concat(typeData.results);
+					total_records = typeData.total_records || total_records;
+					currentPage++;
+				} while (typeData.next);
+		
+				return { total_records, results };
+			};
+		
+			for (const type of incompleteTypes) {
+				console.log(`Obteniendo datos de: ${type}`);
+				apiData[type] = await fetchTypeData(type);
+				localStorage.setItem('swApiData', JSON.stringify(apiData));
+				console.log(`Datos de ${type} obtenidos y actualizados.`);
+			}
+		
+			state.actions.fetchFavorite(JSON.parse(localStorage.getItem('favoriteList')));
+			console.log('Todos los datos han sido obtenidos:', apiData, '\nLista de favoritos cargada:', state.store.favorites);
+		};
+		
 		useEffect(() => {
-			/**
-			 * EDIT THIS!
-			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
-			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
-			 * store, instead use actions, like this:
-			 **/
-		}, []);
+			fetchData();
+		}, []);		
 
 		// The initial value for the context is not null anymore, but the current state of this component,
 		// the context will now have a getStore, getActions and setStore functions available, because they were declared

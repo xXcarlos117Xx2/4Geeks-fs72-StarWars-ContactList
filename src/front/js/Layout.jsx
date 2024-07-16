@@ -16,6 +16,7 @@ import { StarWarsSection } from "./pages/StarWarsSection.jsx";
 import { StarWarsDetails } from "./pages/StarWarsDetails.jsx";
 import { Pedro } from "./pages/Pedro.jsx";
 import { Page404 } from "./pages/404.jsx";
+import { DebugPage } from "./pages/DEBUG.jsx";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -29,6 +30,7 @@ const Layout = () => {
                     <Breadcrumbs />
                     <Routes>
                         <Route element={<Home />} path="/" />
+                        <Route element={<DebugPage />} path="/debug" />
                         <Route element={<ContactListHome />} path="/contact-list" />
                         <Route element={<ContactList />} path="/contact-list/:agendaName" />
                         <Route element={<ContactListForm />} path="/contact-list/:agendaName/:type/:id" />
